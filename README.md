@@ -12,7 +12,7 @@ An intuitive movie search and discovery app where you can explore movies, view d
 This project uses the **The Movie Database (TMDb)** API to fetch movie data.  
 You can find more information about the API here: [TMDb API](https://www.themoviedb.org/documentation/api)
 
-## 📑 Features:
+## 📑 Pages:
 - **Home Page**: Discover new movies.
 - **Movie Details**: Get in-depth information about your favorite movies.
 - **Favorites**: Save your favorite movies to revisit later.
