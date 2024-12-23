@@ -1,0 +1,142 @@
+@use "./__mixins" as mixins;
+@use "./__fonts";
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+// ::selection {
+//   background-color: #7f1d1d;
+//   color: #fff;
+// }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", serif;
+  font-weight: 400;
+  line-height: 1.5;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  transition: all 200ms;
+}
+
+body.active :is(header, section) {
+  filter: blur(20px);
+}
+
+body.dark {
+  background-color: #000;
+
+  > * {
+    color: #fff;
+  }
+  .header {
+    background-color: hsl(0deg 0% 3.9% / 70%);
+    a {
+      color: #fff;
+    }
+  }
+}
+
+
+@include mixins.mq() {
+  body.dark {
+    .nav-left-both {
+      background-color: hsl(0deg 0% 3.9% / 90%);
+    }
+  }
+}
+
+section {
+  margin-bottom: 100px;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: #262626;
+}
+ul,
+li {
+  list-style: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+h1 {
+  font-weight: 600;
+}
+
+p {
+  font-weight: 500;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+.container {
+  max-width: 1140px;
+  margin-inline: auto;
+}
+
+@include mixins.mq() {
+  .container {
+    padding-inline: 15px;
+    width: 100%;
+  }
+}
+
+// .top-rated-title {
+//   font-family: "Inter", sans-serif;
+//   font-weight: 700;
+//   font-size: 32px;
+//   line-height: 1.2;
+//   text-align: center;
+//   margin: 0;
+//   padding: 0;
+// }

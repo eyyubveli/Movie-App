@@ -1,0 +1,153 @@
+@use "../../styles/_mixins" as mixins;
+@use "../../styles/_colors" as colors;
+
+.movie-wrapper {
+  margin-top: 30px;
+
+  .movie-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    img {
+      @include mixins.img;
+      cursor: pointer;
+      transition: all 350ms;
+    }
+
+    h3 {
+      @include mixins.movie-title;
+    }
+  }
+  .movie-bottom {
+    @include mixins.flex;
+    color: colors.$movie-p;
+    margin-top: 15px;
+    &-right {
+      @include mixins.flex($align: center);
+      gap: 5px;
+    }
+
+    p,
+    span {
+      font-size: 14px;
+    }
+  }
+  .picture-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+
+    &:hover {
+      img {
+        filter: blur(5px);
+      }
+      .heart {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      &::before {
+        display: inline-block;
+        border-radius: 10px;
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, black 0%, transparent 50%);
+        filter: blur(5px);
+      }
+    }
+  }
+
+  .lazy-load-image-background {
+    display: block !important;
+  }
+  .heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .movie-list {
+    @include mixins.grid;
+
+    .movie-item {
+      margin-bottom: 35px;
+    }
+
+    @include mixins.mq() {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mixins.mq("tablet") {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include mixins.mq("desktop") {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
+ 
+}
+
+.css-tjjszb,
+.MuiBox-root {
+  background-color: transparent !important;
+  padding: 0 !important;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+.css-eztgiw{
+    width: calc(16.66%  - 10px ) !important;
+}
+
+
+
+@include mixins.mq() {
+  .css-eztgiw {
+    width: calc(50% - 10px) !important;
+
+    &:nth-child(n + 3) {
+      display: none;
+    }
+
+  }
+}
+.css-70qvj9{
+    justify-content: space-between;
+}
+
+.MuiBox-root,
+.css-tjjszb {
+  gap: 5px;
+  overflow-x: auto;
+
+  > span {
+    height: 250px;
+  }
+
+  //   @include mixins.mq() {
+  //     span {
+  //       width: calc(50% - 5px);
+
+  //       &:nth-child(n+3){
+  //         display: none;
+  //       }
+  //     }
+  //   }
+}
+.lazy-image {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.lazy-image-loaded {
+    opacity: 1;
+    transform: scale(1);
+}

@@ -1,0 +1,12 @@
+@use "../../styles/_colors" as colors;
+@use "../../styles/_mixins" as mixins;
+
+.header {
+  background-color: colors.$nav-bg;
+  border-bottom: 1px solid colors.$border;
+  backdrop-filter: blur(8px);
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  height: 70px;
+}

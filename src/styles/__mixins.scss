@@ -1,0 +1,82 @@
+@mixin flex($justify: space-between, $align: flex-start) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+  }
+  
+  @mixin flex-simple {
+    display: flex;
+  }
+  
+  @mixin title {
+    font-size: clamp(1.5625rem, 1.4732rem + 0.2857vw, 1.6875rem);
+  }
+  
+  @mixin movie-title {
+    margin-top: 15px;
+    width: 130px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    font-weight: 400;
+  }
+  
+  @mixin img {
+    border-radius: 10px;
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  @mixin grid {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(6, 1fr);
+  }
+  
+  @mixin button {
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    background-color: #262626;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-family: inherit;
+  }
+  
+  @mixin details-btn {
+    padding-inline: 12px;
+    font-weight: 500;
+    height: 32px;
+    line-height: 18px;
+    font-size: 12px;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    border-radius: 6px;
+    color: #232323;
+    cursor: pointer;
+  }
+  
+  @mixin mq($width: "mobile") {
+    @if ($width == "mobile") {
+      @media (max-width: 767px) {
+        @content;
+      }
+    } @else if($width == "tablet") {
+      @media (min-width: 768px) {
+        @content;
+      }
+    } @else if($width == "desktop") {
+      @media (min-width: 992px) {
+        @content;
+      }
+    } @else if($width == "lgdesktop") {
+      @media (min-width: 1200px) {
+        @content;
+      }
+    }
+  }

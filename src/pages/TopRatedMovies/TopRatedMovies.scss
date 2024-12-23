@@ -1,0 +1,57 @@
+@use "../../styles/_mixins" as mixins;
+@use "../../styles/_colors" as colors;
+
+body.light {
+  .top-rated-movies {
+    
+      button.active {
+        background-color: colors.$primary;
+      }
+    
+  }
+}
+
+.top-rated-movies {
+  margin-top: 110px;
+  .movie-list {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @include mixins.mq("mobile") {
+    .movie-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  img {
+    min-height: 300px !important;
+  }
+}
+
+.pagination {
+  @include mixins.flex-simple;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 30px;
+  button {
+    display: block !important;
+    outline: none;
+    border: none;
+    background-color: colors.$white;
+    padding: 8px 16px;
+    height: 36px;
+    line-height: 20px;
+    cursor: pointer;
+    border-radius: 6px;
+
+    &.active {
+      background-color: colors.$primary;
+      color: colors.$white;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+  }
+}

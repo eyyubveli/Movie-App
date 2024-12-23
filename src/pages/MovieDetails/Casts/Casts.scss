@@ -1,0 +1,47 @@
+@use "../../../styles/_mixins" as mixins;
+
+.cast {
+  &-wrapper {
+    display: flex;
+    gap: 50px;
+    overflow-x: hidden;
+    margin-top: 30px;
+
+    &:hover{
+        overflow-x: auto;
+    }
+    img {
+      height: 80px;
+      width: 80px;
+      -o-object-fit: cover;
+      object-fit: cover;
+      border-radius: 9999px;
+      display: block;
+      max-width: none;
+    }
+
+    h4{
+        margin-block-start: 15px;
+        margin-block-end: 5px;
+        font-size: 13px;
+    }
+    span{
+        font-size: 13px;
+    }
+  }
+
+  &-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 110px;    
+  }
+
+ 
+  @include mixins.mq(){
+    &-wrapper{
+        gap: 10px;
+    }
+  }
+}

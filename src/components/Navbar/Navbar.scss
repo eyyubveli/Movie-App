@@ -1,0 +1,56 @@
+@use "../../styles/_mixins" as mixin;
+@use "../../styles/_colors" as colors;
+
+.nav {
+  font-size: clamp(0.9375rem, 0.5504rem + 0.8065vw, 1.125rem);
+  &-menu {
+    @include mixin.flex($align: center);
+    padding: 20px;
+  }
+  &-left {
+    @include mixin.flex;
+    gap: 80px;
+
+    &-both {
+      @include mixin.flex-simple;
+      gap: 30px;
+    }
+  }
+  &-right {
+    @include mixin.flex-simple;
+    gap: 30px;
+  }
+  &-burger {
+    display: none;
+  }
+
+  @include mixin.mq("mobile") {
+    &-burger {
+      display: block;
+    }
+
+    &-left {
+      gap: 0;
+    }
+
+    .nav-left-both {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      flex-direction: column;
+      padding: 20px;
+      inset: 0;
+      top: 70px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      background-color: colors.$white;
+      gap: 15px;
+      height: 90px; 
+      transition: all 350ms;
+      &.active{
+        visibility: visible;
+        opacity: 1;
+        height: 100px;
+      }
+    }
+  }
+}
