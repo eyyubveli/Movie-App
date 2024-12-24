@@ -17,10 +17,11 @@ const LazyLoadImg = ({ movie }) => {
             />
             <LazyLoadImage
                 src={IMG_PATH_MOBILE + movie.poster_path}
-                alt={movie.original_title}
-                title={movie.original_title}
+                alt={movie.original_title || movie.original_name}
+                title={movie.original_title || movie.original_name}
                 effect="blur"
                 loading="lazy"
+                height={250}
             />
         </picture>
     );
