@@ -8,8 +8,6 @@ import useLocalStorage from '../../hooks/useLocalStorage';
 import { Link, useLocation } from 'react-router-dom';
 import SearchModal from '../ui/Modal';
 
-
-
 const Navbar = () => {
     const [activeMenu, setActiveMenu] = useState(false);
     const { setDataFromStorage, getDataFromStorage } = useLocalStorage();

@@ -37,7 +37,7 @@ const MovieSkeleton = () => {
 
                     <Skeleton
                         width="100%"
-                        height="20px"
+                        height="22.5px"
                         variant="text"
                         sx={{ bgcolor: 'grey.800', mb: 1 }}
                     />
@@ -49,13 +49,13 @@ const MovieSkeleton = () => {
                         }}
                     >
                         <Skeleton
-                            width="20%"
-                            height="20px"
+                            width="40%"
+                            height="21px"
                             variant="text"
                             sx={{ bgcolor: 'grey.800', mr: 1 }}
                         />
                         <Skeleton
-                            width="20%"
+                            width="40%"
                             height="20px"
                             variant="text"
                             sx={{ bgcolor: 'grey.800' }}

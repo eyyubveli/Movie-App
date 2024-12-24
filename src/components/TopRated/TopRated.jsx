@@ -3,10 +3,11 @@ import useFetchMovies from '../../hooks/useFetchMovies'
 import MovieSliderContainer from '../MovieSlider/MovieSliderContainer';
 import { Requests } from '../../constants/Api';
 import MovieSkeleton from '../Skeleton/Skeleton';
-
+import "./TopRated.scss";
 
 const TopRatedTvShows = () => {
     const { data, loading, error } = useFetchMovies(Requests().requestTopRatedTvShows);
+    
     return (
         <section className="top-rated">
             <div className="container">

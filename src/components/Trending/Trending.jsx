@@ -23,7 +23,7 @@ const Trending = () => {
                     {loading ? (
                         <MovieSkeleton />
                     ) : !error && data ? (
-                        <MovieSliderContainer data={data} loading={loading} />
+                        <MovieSliderContainer data={data} loading={loading}/>
                     ) : (
                         <p>Error loading data...</p>
                     )}

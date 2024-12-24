@@ -2,7 +2,7 @@
 @use "../../styles/_colors" as colors;
 
 .trending {
-  margin-top: 130px;
+  padding-top: 130px;
   &-top {
     @include mixins.flex($align: center);
     margin-bottom: 30px

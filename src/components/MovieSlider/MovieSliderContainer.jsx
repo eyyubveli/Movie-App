@@ -26,7 +26,6 @@ const MovieSliderContainer = ({ data, type, loading }) => {
 
     };
     
-
     return (
         <MovieSlider
             data={data}

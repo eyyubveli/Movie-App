@@ -7,7 +7,6 @@
   .movie-item {
     position: relative;
     cursor: pointer;
-    overflow: hidden;
     img {
       @include mixins.img;
       cursor: pointer;
@@ -90,8 +89,6 @@
       grid-template-columns: repeat(6, 1fr);
     }
   }
-
- 
 }
 
 .css-tjjszb,
@@ -99,14 +96,12 @@
   background-color: transparent !important;
   padding: 0 !important;
   border-radius: 10px;
-  margin-top: 30px;
 }
 
-.css-eztgiw{
-    width: calc(16.66%  - 10px ) !important;
+.css-eztgiw {
+  width: calc(16.66% - 10px) !important;
+  min-height: 325px;
 }
-
-
 
 @include mixins.mq() {
   .css-eztgiw {
@@ -115,11 +110,10 @@
     &:nth-child(n + 3) {
       display: none;
     }
-
   }
 }
-.css-70qvj9{
-    justify-content: space-between;
+.css-70qvj9 {
+  justify-content: space-between;
 }
 
 .MuiBox-root,
@@ -142,12 +136,12 @@
   //   }
 }
 .lazy-image {
-    opacity: 0;
-    transform: scale(0.95);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .lazy-image-loaded {
-    opacity: 1;
-    transform: scale(1);
+  opacity: 1;
+  transform: scale(1);
 }

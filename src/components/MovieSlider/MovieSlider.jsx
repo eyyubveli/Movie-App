@@ -7,9 +7,7 @@ import MovieSkeleton from '../Skeleton/Skeleton';
 
 const MovieSlider = ({ data, type, onToggleFavorite, onMovieClick, checkIsFavorite }) => {
 
-
     const movies = type === 'top-rated-movies' ? data.results : data;
-    
     
     return (
         <div className="movie-wrapper">

@@ -7,10 +7,7 @@ import MovieSkeleton from '../Skeleton/Skeleton';
 
 const Upcoming = () => {
     const { data, loading, error } = useFetchMovies(Requests().requestUpcoming);
-    useEffect(() => {
-        console.log(loading);
-        
-    }, [])
+
     return (
         <section className='upcoming'>
         <div className="container">
