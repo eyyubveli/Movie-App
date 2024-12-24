@@ -20,22 +20,27 @@ function SearchModal({ open, setOpen }) {
         if (event.target.id === 'headlessui-portal-root') {
             setOpen(false);
             setSearch('');
+            console.log('true');
+            
         }
     };
 
     useEffect(() => {
-
         if (open) {
             document.body.classList.add('active');
             document.addEventListener('mousedown', handleClickOutside);
+            document.addEventListener('touchstart', handleClickOutside); // Dokunma olaylarını da dinle
         } else {
             document.body.classList.remove('active');
             document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener('touchstart', handleClickOutside); // Dokunma olayını kaldır
         }
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener('touchstart', handleClickOutside); // Etkinlik temizliği
         };
     }, [open]);
+    
 
     const handleChangle = (e) => {
         setSearch(e.target.value);
@@ -46,7 +51,6 @@ function SearchModal({ open, setOpen }) {
             <Dialog ref={ref} open={open} onClose={() => { }} className="relative z-50">
                 <div>
                     <DialogPanel
-
                     >
                         <DialogTitle>Searching Something</DialogTitle>
 
