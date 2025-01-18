@@ -4,24 +4,17 @@ import { CiSearch } from "react-icons/ci";
 import useFetchMovies from '../../hooks/useFetchMovies';
 import { RequestsForDetails } from '../../constants/Api';
 import Search from './Search';
-
 import "./Modal.scss";
 
 function SearchModal({ open, setOpen }) {
-
     const ref = useRef(null);
     const [search, setSearch] = useState('');
-
     const { data } = useFetchMovies(search ? RequestsForDetails(search).RequestMultiSearch : null);
-
-
+    
     const handleClickOutside = (event) => {
-
         if (event.target.id === 'headlessui-portal-root') {
             setOpen(false);
             setSearch('');
-            console.log('true');
-            
         }
     };
 
@@ -50,10 +43,8 @@ function SearchModal({ open, setOpen }) {
         <>
             <Dialog ref={ref} open={open} onClose={() => { }} className="relative z-50">
                 <div>
-                    <DialogPanel
-                    >
+                    <DialogPanel>
                         <DialogTitle>Searching Something</DialogTitle>
-
                         <div className="input-container">
                             <input
                                 value={search}
@@ -65,7 +56,6 @@ function SearchModal({ open, setOpen }) {
                             />
                             <CiSearch className="search" size={22} />
                         </div>
-
                         <Search data={data} setOpen={setOpen} setSearch={setSearch} search={search} />
                     </DialogPanel>
                 </div>
