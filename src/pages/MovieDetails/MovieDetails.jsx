@@ -3,19 +3,16 @@ import { IMG_PATH_DESKTOP, Requests, RequestsForDetails } from '../../constants/
 import "./MovieDetails.scss";
 import { useDispatch } from 'react-redux';
 import { addMovieToFavorites } from '../../store/FavoriteMoviesSlice';
-// import { MovieDetailsContent } from './MovieDetailsContent';
 import { useIsFavorite } from '../../hooks/useIsFavorite';
 import useMovieDetails from '../../hooks/useMovieDetails';
 import { useParams } from 'react-router-dom';
 import { MovieDetailsContent } from './MovieDetailsContent';
-
 
 const MovieDetails = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
     const { location, movie } = useMovieDetails(RequestsForDetails(id).RequestTV, RequestsForDetails(id).RequestMovie);
     const isFavorite = useIsFavorite(movie);
-
     const genreNames = movie?.genres?.map(genre => genre.name) || [];
 
     const handleToggleFavorite = () => {
@@ -24,17 +21,12 @@ const MovieDetails = () => {
         }
     };
 
-    console.log(movie);
-
-
-
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [location.pathname])
 
     return (
         <section className="movie-details">
-
             <MovieDetailsContent
                 movie={movie}
                 genreNames={genreNames}
