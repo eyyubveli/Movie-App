@@ -29,15 +29,15 @@ function SearchModal({ open, setOpen }) {
         if (open) {
             document.body.classList.add('active');
             document.addEventListener('mousedown', handleClickOutside);
-            document.addEventListener('touchstart', handleClickOutside); // Dokunma olaylarını da dinle
+            document.addEventListener('touchstart', handleClickOutside); 
         } else {
             document.body.classList.remove('active');
             document.removeEventListener('mousedown', handleClickOutside);
-            document.removeEventListener('touchstart', handleClickOutside); // Dokunma olayını kaldır
+            document.removeEventListener('touchstart', handleClickOutside); 
         }
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
-            document.removeEventListener('touchstart', handleClickOutside); // Etkinlik temizliği
+            document.removeEventListener('touchstart', handleClickOutside); 
         };
     }, [open]);
     
