@@ -3,10 +3,9 @@ import { IMG_PATH } from '../../constants/Api'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 const Search = ({ data, setOpen, setSearch, search }) => {
-
+    
     const navigate = useNavigate();
-    const isTv = data?.results && data?.results[0]?.media_type === 'tv';
-
+    
     return (
         <div className="search-container">
             <div className="search-results">
@@ -19,11 +18,11 @@ const Search = ({ data, setOpen, setSearch, search }) => {
                             const releaseDate = mv.release_date || mv.first_air_date
                             const imageUrl = mv.poster_path ? `${IMG_PATH}${mv.poster_path}` :
                                 mv.profile_path ? `${IMG_PATH}${mv.profile_path}` :
-                                    'https://via.placeholder.com/80x120?text=No+Image';
+                                    'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg';
 
                             return (
                                 <div key={mv.id} className="search-item" onClick={() => {
-                                    navigate(`/${isTv ? 'tv-details' : 'movie-details'}/${mv.id}`)
+                                  navigate(`/${mv.first_air_date ? 'tv-details' : 'movie-details'}/${mv.id}`)
                                     setOpen(false)
                                     setSearch('');
                                 }}>
