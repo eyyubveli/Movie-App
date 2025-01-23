@@ -15,6 +15,7 @@ function SearchModal({ open, setOpen }) {
         if (event.target.id === 'headlessui-portal-root') {
             setOpen(false);
             setSearch('');
+            setData([]);
         }
     };
 
