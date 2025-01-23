@@ -9,7 +9,7 @@ import "./Modal.scss";
 function SearchModal({ open, setOpen }) {
     const ref = useRef(null);
     const [search, setSearch] = useState('');
-    const { data } = useFetchMovies(search ? RequestsForDetails(search).RequestMultiSearch : null);
+    const { data, setData } = useFetchMovies(search ? RequestsForDetails(search).RequestMultiSearch : null);
     
     const handleClickOutside = (event) => {
         if (event.target.id === 'headlessui-portal-root') {
@@ -56,7 +56,7 @@ function SearchModal({ open, setOpen }) {
                             />
                             <CiSearch className="search" size={22} />
                         </div>
-                        <Search data={data} setOpen={setOpen} setSearch={setSearch} search={search} />
+                        <Search data={data} setData = {setData} setOpen={setOpen} setSearch={setSearch} search={search} />
                     </DialogPanel>
                 </div>
             </Dialog>
