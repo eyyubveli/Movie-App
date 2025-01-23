@@ -9,7 +9,7 @@ const Search = ({ data, setOpen, setSearch, search, setData }) => {
         <div className="search-container">
             <div className="search-results">
                 {
-                    data.results && data.results.length > 0 ? (
+                    data?.results && data.results.length > 0 ? (
                         data.results.slice(0, 10).map((mv) => {
                             const title = mv.title || mv.
                                 original_title || mv.original_name
