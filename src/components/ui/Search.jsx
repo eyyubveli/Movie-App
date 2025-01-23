@@ -4,6 +4,8 @@ import { useLocation, useNavigate } from 'react-router-dom'
 
 const Search = ({ data, setOpen, setSearch, search }) => {
     
+    if (!data || data.result) return;
+    
     const navigate = useNavigate();
     
     return (
