@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { IMG_PATH } from '../../constants/Api'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
-const Search = ({ data, setOpen, setSearch, search }) => {
-    
-    if (!data || data.results) return;
-    
+const Search = ({ data, setOpen, setSearch, search, setData }) => {
     const navigate = useNavigate();
     
     return (
@@ -27,6 +24,7 @@ const Search = ({ data, setOpen, setSearch, search }) => {
                                   navigate(`/${mv.first_air_date ? 'tv-details' : 'movie-details'}/${mv.id}`)
                                     setOpen(false)
                                     setSearch('');
+                                    setData([]);
                                 }}>
                                     <img
                                         height={70}
