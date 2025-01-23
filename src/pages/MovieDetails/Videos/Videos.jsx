@@ -12,10 +12,7 @@ const Videos = () => {
         RequestsForDetails(id).RequestVideosForMovie,
         (data) => data.results
     );
-    useEffect(() => {
-        console.log(video);
-
-    }, [])
+    
     return (
         <section className='videos'>
             <div className="container">
