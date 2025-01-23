@@ -8,6 +8,7 @@ const useFetchMovies = (url) => {
 
     useEffect(() => {
         const fetchData = async () => {
+            if(!url)return;
             try {
                 const response = await axios.get(url);
                 setData(response.data);
