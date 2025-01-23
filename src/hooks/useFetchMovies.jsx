@@ -9,6 +9,7 @@ const useFetchMovies = (url) => {
     useEffect(() => {
         const fetchData = async () => {
             if(!url)return;
+            
             try {
                 const response = await axios.get(url);
                 setData(response.data);
@@ -22,7 +23,7 @@ const useFetchMovies = (url) => {
         fetchData();
     }, [url]);
 
-    return { data, loading, error };
+    return { data, setData, loading, error };
 };
 
 export default useFetchMovies;
