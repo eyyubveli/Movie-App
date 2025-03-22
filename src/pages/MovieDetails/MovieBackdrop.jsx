@@ -1,5 +1,5 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { IMG_PATH_DESKTOP } from '../../constants/api';
+import { IMG_PATH_DESKTOP } from '../../constants/Api';
 
 export const MovieBackdrop = ({ movie }) => {
 

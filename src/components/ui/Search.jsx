@@ -2,16 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { IMG_PATH } from '../../constants/Api'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-const Search = ({ data, setOpen, setSearch, search }) => {
-
+const Search = ({ data, setOpen, setSearch, search, setData }) => {
     const navigate = useNavigate();
-    const isTv = data?.results && data?.results[0]?.media_type === 'tv';
 
     return (
         <div className="search-container">
             <div className="search-results">
                 {
-                    data.results && data.results.length > 0 ? (
+                    data?.results && data.results.length > 0 ? (
                         data.results.slice(0, 10).map((mv) => {
                             const title = mv.title || mv.
                                 original_title || mv.original_name
@@ -19,13 +17,14 @@ const Search = ({ data, setOpen, setSearch, search }) => {
                             const releaseDate = mv.release_date || mv.first_air_date
                             const imageUrl = mv.poster_path ? `${IMG_PATH}${mv.poster_path}` :
                                 mv.profile_path ? `${IMG_PATH}${mv.profile_path}` :
-                                    'https://via.placeholder.com/80x120?text=No+Image';
+                                    'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg';
 
                             return (
                                 <div key={mv.id} className="search-item" onClick={() => {
-                                    navigate(`/${isTv ? 'tv-details' : 'movie-details'}/${mv.id}`)
+                                    navigate(`/${mv.first_air_date ? 'tv-details' : 'movie-details'}/${mv.id}`)
                                     setOpen(false)
                                     setSearch('');
+                                    setData([]);
                                 }}>
                                     <img
                                         height={70}
@@ -43,7 +42,7 @@ const Search = ({ data, setOpen, setSearch, search }) => {
                             );
                         })
                     ) :
-                        search &&  <p className="search-title">No results found</p>
+                        search && <p className="search-title">No results found</p>
                 }
             </div>
         </div>

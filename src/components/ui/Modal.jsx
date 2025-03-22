@@ -11,8 +11,8 @@ function SearchModal({ open, setOpen }) {
 
     const ref = useRef(null);
     const [search, setSearch] = useState('');
-
-    const { data } = useFetchMovies(search ? RequestsForDetails(search).RequestMultiSearch : null);
+    
+    const { data, setData } = useFetchMovies(search ? RequestsForDetails(search).RequestMultiSearch : null);
 
 
     const handleClickOutside = (event) => {
@@ -20,8 +20,7 @@ function SearchModal({ open, setOpen }) {
         if (event.target.id === 'headlessui-portal-root') {
             setOpen(false);
             setSearch('');
-            console.log('true');
-            
+            setData([]);
         }
     };
 
@@ -29,15 +28,15 @@ function SearchModal({ open, setOpen }) {
         if (open) {
             document.body.classList.add('active');
             document.addEventListener('mousedown', handleClickOutside);
-            document.addEventListener('touchstart', handleClickOutside); // Dokunma olaylarını da dinle
+            document.addEventListener('touchstart', handleClickOutside); 
         } else {
             document.body.classList.remove('active');
             document.removeEventListener('mousedown', handleClickOutside);
-            document.removeEventListener('touchstart', handleClickOutside); // Dokunma olayını kaldır
+            document.removeEventListener('touchstart', handleClickOutside); 
         }
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
-            document.removeEventListener('touchstart', handleClickOutside); // Etkinlik temizliği
+            document.removeEventListener('touchstart', handleClickOutside); 
         };
     }, [open]);
     
@@ -66,7 +65,7 @@ function SearchModal({ open, setOpen }) {
                             <CiSearch className="search" size={22} />
                         </div>
 
-                        <Search data={data} setOpen={setOpen} setSearch={setSearch} search={search} />
+                        <Search data={data} setData = {setData} setOpen={setOpen} setSearch={setSearch} search={search} />
                     </DialogPanel>
                 </div>
             </Dialog>

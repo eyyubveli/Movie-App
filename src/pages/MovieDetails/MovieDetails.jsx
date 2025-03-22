@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { IMG_PATH_DESKTOP, Requests, RequestsForDetails } from '../../constants/api';
+import { IMG_PATH_DESKTOP, Requests, RequestsForDetails } from '../../constants/Api';
 import "./MovieDetails.scss";
 import { useDispatch } from 'react-redux';
 import { addMovieToFavorites } from '../../store/FavoriteMoviesSlice';
@@ -23,10 +23,6 @@ const MovieDetails = () => {
             dispatch(addMovieToFavorites(movie));
         }
     };
-
-    console.log(movie);
-
-
 
     useEffect(() => {
         window.scrollTo(0, 0);

@@ -1,4 +1,4 @@
-import { IMG_PATH } from '../../constants/api';
+import { IMG_PATH } from '../../constants/Api';
 import { formatYear } from '../../utils/dateUtils';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { MovieBackdrop } from './MovieBackdrop';
