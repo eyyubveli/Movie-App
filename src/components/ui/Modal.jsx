@@ -4,14 +4,19 @@ import { CiSearch } from "react-icons/ci";
 import useFetchMovies from '../../hooks/useFetchMovies';
 import { RequestsForDetails } from '../../constants/Api';
 import Search from './Search';
+
 import "./Modal.scss";
 
 function SearchModal({ open, setOpen }) {
+
     const ref = useRef(null);
     const [search, setSearch] = useState('');
+
     const { data, setData } = useFetchMovies(search ? RequestsForDetails(search).RequestMultiSearch : null);
-    
+
+
     const handleClickOutside = (event) => {
+
         if (event.target.id === 'headlessui-portal-root') {
             setOpen(false);
             setSearch('');
@@ -23,18 +28,18 @@ function SearchModal({ open, setOpen }) {
         if (open) {
             document.body.classList.add('active');
             document.addEventListener('mousedown', handleClickOutside);
-            document.addEventListener('touchstart', handleClickOutside); 
+            document.addEventListener('touchstart', handleClickOutside);
         } else {
             document.body.classList.remove('active');
             document.removeEventListener('mousedown', handleClickOutside);
-            document.removeEventListener('touchstart', handleClickOutside); 
+            document.removeEventListener('touchstart', handleClickOutside);
         }
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
-            document.removeEventListener('touchstart', handleClickOutside); 
+            document.removeEventListener('touchstart', handleClickOutside);
         };
     }, [open]);
-    
+
 
     const handleChangle = (e) => {
         setSearch(e.target.value);
@@ -44,8 +49,10 @@ function SearchModal({ open, setOpen }) {
         <>
             <Dialog ref={ref} open={open} onClose={() => { }} className="relative z-50">
                 <div>
-                    <DialogPanel>
+                    <DialogPanel
+                    >
                         <DialogTitle>Searching Something</DialogTitle>
+
                         <div className="input-container">
                             <input
                                 value={search}
@@ -57,7 +64,8 @@ function SearchModal({ open, setOpen }) {
                             />
                             <CiSearch className="search" size={22} />
                         </div>
-                        <Search data={data} setData = {setData} setOpen={setOpen} setSearch={setSearch} search={search} />
+
+                        <Search data={data} setData={setData} setOpen={setOpen} setSearch={setSearch} search={search} />
                     </DialogPanel>
                 </div>
             </Dialog>

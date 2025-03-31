@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { IMG_PATH } from '../../constants/Api'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const Search = ({ data, setOpen, setSearch, search, setData }) => {
     const navigate = useNavigate();
-    
+
     return (
         <div className="search-container">
             <div className="search-results">
@@ -21,7 +21,7 @@ const Search = ({ data, setOpen, setSearch, search, setData }) => {
 
                             return (
                                 <div key={mv.id} className="search-item" onClick={() => {
-                                  navigate(`/${mv.first_air_date ? 'tv-details' : 'movie-details'}/${mv.id}`)
+                                    navigate(`/${mv.first_air_date ? 'tv-details' : 'movie-details'}/${mv.id}`)
                                     setOpen(false)
                                     setSearch('');
                                     setData([]);
@@ -42,7 +42,7 @@ const Search = ({ data, setOpen, setSearch, search, setData }) => {
                             );
                         })
                     ) :
-                        search &&  <p className="search-title">No results found</p>
+                        search && <p className="search-title">No results found</p>
                 }
             </div>
         </div>

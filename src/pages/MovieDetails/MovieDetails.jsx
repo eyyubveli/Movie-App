@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { IMG_PATH_DESKTOP, Requests, RequestsForDetails } from '../../constants/api';
+import { IMG_PATH_DESKTOP, Requests, RequestsForDetails } from '../../constants/Api';
 import "./MovieDetails.scss";
 import { useDispatch } from 'react-redux';
 import { addMovieToFavorites } from '../../store/FavoriteMoviesSlice';

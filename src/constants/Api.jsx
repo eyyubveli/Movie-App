@@ -15,7 +15,6 @@ const Requests = (type) => {
 
 const RequestsForDetails = (id) => {
 
-
     const all = {
         RequestMovie: `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`,
         RequestTV: `https://api.themoviedb.org/3/tv/${id}?api_key=${API_KEY}`,
